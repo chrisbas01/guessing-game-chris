@@ -1,0 +1,44 @@
+
+
+.full-width {
+    background-color: rgba(7, 7, 159, 0.733);
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    
+}
+
+.h01  {
+font-size: 2.0rem;
+font-weight: bold;
+color: white; 
+outline-color: black;
+justify-content: center;
+align-items: center;
+outline-width: 5px;
+text-shadow: 10rem;
+}
+body {
+    background-color: azure;
+}
+main {
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    background-color: blanchedalmond;
+    color: blue;
+    padding-top: 15px;
+}
+
+footer {
+    text-shadow: 10px;
+    color:rgb(243, 196, 196);
+    background-color: rgba(19, 11, 239, 0.522);
+    padding-top: 20px;
+    
+}
+img {
+    float: left;
+    border-radius: 15px;
+    padding-right: 20px;
+}
