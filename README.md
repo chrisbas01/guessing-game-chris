@@ -24,6 +24,8 @@ conditional loggic to see if they guessed correct
 make sure the case doesnt matter for y no answer. 
 personalized message. 
 
+![Rating](rating.png)
+
 @@ -0,0 +1,126 @@
 # Code 201: Foundations of Software Development - Core Syllabus
 

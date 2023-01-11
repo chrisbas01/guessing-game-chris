@@ -28,14 +28,18 @@ main {
     background-color: blanchedalmond;
     color: blue;
     padding-top: 15px;
+    padding-bottom: 20px;
 }
 
 footer {
     text-shadow: 10px;
     color:rgb(243, 196, 196);
     background-color: rgba(19, 11, 239, 0.522);
-    padding-top: 20px;
-    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 10px;
+    border-color: azure;
+    font-size: large;
 }
 img {
     float: left;
