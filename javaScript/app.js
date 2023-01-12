@@ -1,63 +1,152 @@
-'use strict'
+// THank you Kawiki for help with the code!!
+"use strict";
 
-let person = prompt('What is your name?');
-if (person === '') {
-    person = alert('please refresh and start again!');
+function normalizeAnswer (answer) {
+    // Gets the first character of an answer, which should be either 'y' or 'n', and then capitalizes it to prepare it for our conditional checks.
+    let normalizedResponse = answer.charAt(0).toUpperCase();
+    return normalizedResponse;
 }
-else {
-    let isReady = confirm(person + ' Are you ready?');
-    if (isReady) {
-        alert('Great! ' + person + ' is ready!');
-    }
-    else {
-        alert('ugh oh, please come back when you are ready!');
-        alert('Greetings ' + person + '!!' + ' Let us, see how good at guessing you are?');
-    }
+alert("Welcome to my guessing game about 'Me'!.")
+
+let userName = prompt("Hey, what do I call you?");
+while (!userName) {
+    userName = prompt("Oh you didn't understand, What is your name?");
 }
-    
-myAge();
-function myAge() {
-    let age = prompt ('Am I older than 40 years old?');
-    if (age.toLowerCase() === 'yes' || age.toLowerCase() === 'y'){
-        alert('wrong wow this is going to be hard for you!');
-    } else {
-        alert('Thank you for getting that correct!');
-    }   
-}
-where();
- function where() {
-    let where1 = prompt ('Am I from the U.S.?');
-    if (where1.toLowerCase() === 'yes' || where1.toLowerCase() === 'y'){
-        alert('correct, it would be weird to guess that wrong');
-    } else {
-        alert('Wrong, interesting guess!');
-    }   
-} 
-school();
- function school() {
-    let school1 = prompt ('Do I speak more than one language?');
-    if (school1.toLowerCase() === 'yes' || school1.toLowerCase() === 'y'){
-        alert('Correct, read next page for more info.');
-    } else {
-        alert('Wrong, try again!');
+//console.log("user's name is " + userName);
+alert('Hey, ' + userName + '! Get ready to make some guesses!')
+
+const questionsArr = [
+    'Am I older than 40 years old?', 
+    'Am I from the U.S.?',
+    'Do I speak more than one language?',
+    'Am I younger than 40 years old?',
+    'Was I ever in the military?',
+];
+
+const answersArr = [
+    'N',
+    'Y',
+    'Y',
+    'Y',
+    'N',
+];
+
+const responseCorrect = [
+    "Thank you for getting that correct!",
+    "correct, it would be weird to guess that wrong",
+    'Correct, read next page for more info.',
+    "Correct, I am glad you got that right.",
+    "Correct, I never joined.",
+
+];
+
+const responseIncorrect = [
+    'Wrong, wow this is going to be hard for you, we both should be embarrassed!',
+    'Wrong, interesting guess!',
+    'Wrong, try again',
+    "Wrong, sorry, you need glasses.",
+    "Wrong, no stolen valor here."
+
+];
+
+const responseInvalidAnswer = [
+    "It was a 'yes' or 'no' question...",
+    "Please abide by the rules and  Pick 'Yes' or 'No'.",
+    "'YES' OR 'NO' ANSWERS ONlY!",
+    "Hmmm, you would think you would learn by now 'Yes' or 'No' only!",
+    "What's the point in giving you instructions, if you're going to ignore them? PLEASE AWNSER 'YES' OR 'NO'!" ,
+
+]
+
+const topFiveSports = [
+    'Pool',
+    'Golf',
+    'Basketball',
+    'Football',
+    'Table-Tennis',
+]
+
+let score = 0;
+let j = 0;
+
+for (let i = 0; i < questionsArr.length; i++) {
+
+    let answer = prompt(questionsArr[i]);
+
+    while (!answer) {
+        alert('Dude, you have to at least try to answer the question...');
+        answer = prompt(questionsArr[i]);
     }
 
+    alert(`${userName} answered ${answer}...`);
+    answer = normalizeAnswer(answer);
+    //console.log('normalized answer');
+
+    if (answer === answersArr[i]) {
+        //console.log('correct response')
+        alert(responseCorrect[i]);
+        score++;
+    } else if ((answer != answersArr[i] && answer === 'N') || (answer != answersArr[i] && answer === 'Y')) {
+        //console.log('incorrect response');
+        alert(responseIncorrect[i]);
+    } else {
+        //console.log(j);
+        if (j >= responseInvalidAnswer.length) {
+            alert(responseInvalidAnswer[4]);
+        } else {
+            alert (responseInvalidAnswer[j]);
+        }
+        j++;
+        i--;
+        //console.log(j);
+    }
 }
-young();
- function young() {
-    let age = prompt ('Am I younger than 40 years old?');
-    if (age.toLowerCase() === 'yes' || age.toLowerCase() === 'y'){
-        alert('Correct, I am glad you got that right.');
+let randomNumber = Math.round(Math.random() * 21); //Math.random returns a random number between 0 and 1. When we multiply it by a number it scales the max range. However, if we multiply it by 20 it will only produce a number between 0 and 19, so by scaling it by 21 we set the range of possible numbers between 0 and 20.
+let attempts = 0;
+let numberGuess = 0;
+
+do {
+    //console.log(randomNumber);
+    numberGuess = prompt('Pick a number between 0 and 20.');
+    // numberGuess = Number(numberGuess);
+    // console.log(typeof numberGuess);
+
+    while (/*numberGuess === NaN ||*/ numberGuess < 0 || numberGuess > 20) {
+        numberGuess = prompt('Please enter a valid number between 0 and 20')
+    }
+
+    if (numberGuess > randomNumber) {
+        alert('Too high!');
+    } else if (numberGuess < randomNumber) {
+        alert('Too low!');
+    } else if (numberGuess == randomNumber) {
+        alert('Whoa! You got it right!');
+        score++;
+        //console.log(score);
+    }
+    attempts++;
+    //console.log(attempts);
+} while (attempts < 4 && numberGuess != randomNumber)
+
+if (attempts === 4 && numberGuess != randomNumber) {
+    alert(`Sorry, too many attempts! No points given. The correct answer was ${randomNumber}!`);
+}
+
+attempts = 0;
+let sportsGuess;
+
+do {
+    sportsGuess = prompt('Guess what one of my top 5 favorite sports are? (Some I play, and some I just watch.)');
+    sportsGuess = sportsGuess.charAt(0).toUpperCase() + sportsGuess.slice(1).toLowerCase();
+    if (topFiveSports.includes(sportsGuess)) {
+        alert(`Nice! Yeah, ${sportsGuess} is pretty awesome!`);
+        score++;
     } else {
-        alert('Wrong sorry, you need glasses.');
-    }   
-} 
-military();
- function military() {
-    let age = prompt ('Was I ever in the military?');
-    if (age.toLowerCase() === 'yes' || age.toLowerCase() === 'y'){
-        alert('wrong, no stolen valor here.');
-    } else {
-        alert('Correct, I never joined');
-    }   
-} 
+        alert('Sorry, try again!')
+    }
+    attempts++;
+} while (attempts < 7 && !topFiveSports.includes(sportsGuess))
+
+alert(`The correct answers were ${topFiveSports}`);
+alert(`You got ${score} correct out of 7. well done!.`)
+alert("Thank you for playing 'My guessing game', " + userName +" We'll see you next time!");
