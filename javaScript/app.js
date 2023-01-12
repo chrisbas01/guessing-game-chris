@@ -101,14 +101,14 @@ for (let i = 0; i < questionsArr.length; i++) {
         //console.log(j);
     }
 }
-let randomNumber = Math.round(Math.random() * 21); //Math.random returns a random number between 0 and 1. When we multiply it by a number it scales the max range. However, if we multiply it by 20 it will only produce a number between 0 and 19, so by scaling it by 21 we set the range of possible numbers between 0 and 20.
+// let randomNumber = Math.round(Math.random() * 21); Math.random returns a random number between 0 and 1. When we multiply it by a number it scales the max range. However, if we multiply it by 20 it will only produce a number between 0 and 19, so by scaling it by 21 we set the range of possible numbers between 0 and 20.
 let attempts = 0;
 let numberGuess = 0;
 
 do {
     //console.log(randomNumber);
     numberGuess = prompt('Pick a number between 0 and 20.');
-    // numberGuess = Number(numberGuess);
+    numberGuess = Number(numberGuess);
     // console.log(typeof numberGuess);
 
     while (/*numberGuess === NaN ||*/ numberGuess < 0 || numberGuess > 20) {
@@ -125,7 +125,7 @@ do {
         //console.log(score);
     }
     attempts++;
-    //console.log(attempts);
+    console.log(attempts);
 } while (attempts < 4 && numberGuess != randomNumber)
 
 if (attempts === 4 && numberGuess != randomNumber) {
