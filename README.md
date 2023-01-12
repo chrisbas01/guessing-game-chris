@@ -7,6 +7,8 @@ fuction. asks the user questions about jacob and tells the user if they are righ
 
 ##Author: Chris Bascom
 
+Jan. 12, 2023 - Refactored question logic into a function via pair programming. Kawika Miller was the Driver and the Navigator was Chris Bascom.
+
 ##links and Resources
 
 TBD
