@@ -101,7 +101,7 @@ for (let i = 0; i < questionsArr.length; i++) {
         //console.log(j);
     }
 }
-// let randomNumber = Math.round(Math.random() * 21); Math.random returns a random number between 0 and 1. When we multiply it by a number it scales the max range. However, if we multiply it by 20 it will only produce a number between 0 and 19, so by scaling it by 21 we set the range of possible numbers between 0 and 20.
+let randomNumber = Math.floor(Math.random() * 21); //  Math.random returns a random number between 0 and 1. When we multiply it by a number it scales the max range. However, if we multiply it by 20 it will only produce a number between 0 and 19, so by scaling it by 21 we set the range of possible numbers between 0 and 20.
 let attempts = 0;
 let numberGuess = 0;
 
@@ -120,7 +120,7 @@ do {
     } else if (numberGuess < randomNumber) {
         alert('Too low!');
     } else if (numberGuess == randomNumber) {
-        alert('Whoa! You got it right!');
+        alert('Nicely done, you are amazing at guessing!');
         score++;
         //console.log(score);
     }
