@@ -28,7 +28,7 @@ personalized message.
 
 ![Rating](rating.png)
 ![Rating2](second.png)
-
+![Rating3](Lighthouse2.png)
 @@ -0,0 +1,126 @@
 # Code 201: Foundations of Software Development - Core Syllabus
 
